@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'Backend';
+$this->params['index'] = 0;
 ?>
 <div class="site-index">
 

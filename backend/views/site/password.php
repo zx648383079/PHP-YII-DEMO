@@ -8,6 +8,7 @@ use yii\helpers\Html;
 
 $this->title = 'Reset Password';
 $this->params['breadcrumbs'][] = $this->title;
+$this->params['index'] = 2;
 ?>
 <div class="site-password">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -28,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <label for="exampleInputPassword1">Confirm Password</label>
                     <input type="password" name="confirm" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
                 </div>
-                <p><?=$error?></p>
-                <button type="submit" class="btn btn-default">Reset</button>
+                <p class="text-danger"><?=$error?></p>
+                <button type="submit" class="btn btn-primary">Reset</button>
             </form>
         </div>
     </div>

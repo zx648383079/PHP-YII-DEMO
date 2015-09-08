@@ -9,7 +9,9 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
+use backend\models\CollectForm;
+use yii\data\Pagination;
 /**
  * CollectController implements the CRUD actions for Collect model.
  */
@@ -21,7 +23,7 @@ class CollectController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    ['actions' => ['index'],
+                    ['actions' => ['index','view','delete','create','update'],
                         'allow' => true,
                         'matchCallback' => function()
                         {
@@ -57,12 +59,16 @@ class CollectController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Collect::find(),
-        ]);
-
+        $query = Collect::find();
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->with('user')->all();
+    
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'models' => $models,
+            'pages' => $pages,
         ]);
     }
 
@@ -71,11 +77,9 @@ class CollectController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView()
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        return $this->render('view');
     }
 
     /**
@@ -85,25 +89,20 @@ class CollectController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Collect();
+        $error = '';
+        $collect = new CollectForm();
         
-        
-        if ($model->load(Yii::$app->request->post())) 
-        {
-            $model->user_id = Yii::$app->user->identity->id;
-            $model->created_at = $model->updated_at = time();
-            $model->file = UploadedFile::getInstance($model, 'audio');
-            if ($model->validate()) {                
-                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
-                if($model->save())
-                {
-                return $this->redirect(['view', 'id' => $model->id]); 
-                }
+        if (Yii::$app->request->isPost) {
+            $collect->audio = UploadedFile::getInstances($collect, 'audio');
+            if ($collect->upload()) {
+                $error = 'Upload success!';
+            }else{
+                $error = $collect ->errors['audio'][0];
             }
         }
         
         return $this->render('create', [
-                'model' => $model,
+                'error' => $error,
             ]);
     }
 
@@ -115,15 +114,24 @@ class CollectController extends Controller
      */
     public function actionUpdate($id)
     {
+        $error = '';
         $model = $this->findModel($id);
-        $model->updated_at = time();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
+        if (Yii::$app->request->isPost) {
+            $model->user_id = Yii::$app->user->identity->id;
+            $model->text = Yii::$app->request->post('text');
+            $model->updated_at = time();
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                $error = 'Update fail!';
+            }
+        } 
+        
+        return $this->render('update', [
+            'model' => $model,
+            'error' => $error
+            
+        ]);
     }
 
     /**

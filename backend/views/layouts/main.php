@@ -26,34 +26,30 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Collect', 'url' => ['/collect/index']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = ['label' => 'Password', 'url' => ['/site/reset']];
-        $menuItems[] = [
-            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+    <nav id="w0" class="navbar-inverse navbar-fixed-top navbar" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w0-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/admin.php">NWAYS</a></div>
+<div id="w0-collapse" class="collapse navbar-collapse">
+    <ul id="w1" class="navbar-nav navbar-right nav">
+        <?php if(Yii::$app->user->isGuest){
+            echo '<li class="active"><a href="/admin.php?r=site/login">Login</a></li>';
+        }else{
+            echo '<li class="'.(($this->params['index']==0)?'active':'').'"><a href="/admin.php?r=site/index">Home</a></li>';
+            echo '<li class="'.(($this->params['index']==1)?'active':'').'"><a href="/admin.php?r=collect/index">Collect</a></li>';
+            echo '<li class="'.(($this->params['index']==2)?'active':'').'"><a href="/admin.php?r=site/reset">Password</a></li>';
+            echo '<li><a href="/admin.php?r=site/logout" data-method="post">Logout ('.Yii::$app->user->identity->username.')</a></li>';
+       } ?>
+    </ul>
+   </div>
+  </div>
+</nav>
+
 
     <div class="container">
         <?= Breadcrumbs::widget([
@@ -66,7 +62,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; NWAYS <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

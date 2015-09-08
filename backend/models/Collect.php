@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use Yii;
-
+use common\models\User;
 /**
  * This is the model class for table "collect".
  *
@@ -32,9 +32,7 @@ class Collect extends \yii\db\ActiveRecord
     {
         return [
             [['like', 'user_id', 'created_at', 'updated_at'], 'integer'],
-            [['created_at', 'updated_at'], 'required'],
-            [['text'], 'string', 'max' => 255],
-            [['audio'],'file','extensions' => 'wma, mp3, wav, ape',]
+            [['text', 'audio'], 'string', 'max' => 255]
         ];
     }
 
@@ -52,5 +50,10 @@ class Collect extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+    
+    public function getUser()
+    {
+        return $this->hasOne(User::className(),['id' => 'user_id']);
     }
 }
