@@ -25,7 +25,7 @@ class CollectForm extends Model
         if ($this->validate()) { 
             foreach ($this->audio as $file) {
                 
-                $path = 'uploads/' . $file->baseName . '.' . $file->extension;
+                $path = 'uploads/' . $file->name;
                 $file->saveAs(iconv('utf-8','gb2312',$path));
                 
                 $model = new Collect();
