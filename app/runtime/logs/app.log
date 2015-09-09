@@ -1,0 +1,462 @@
+2015-09-09 13:00:19 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected 'if' (T_IF)' in E:\GitHub\yii\app\controllers\SiteController.php:29
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2015-09-09 13:00:19 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://b.yii:8080/index.php?r=site%2Fmain'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54202'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441774819.659
+    'REQUEST_TIME' => 1441774819
+]
+2015-09-09 13:00:28 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'User::identityClass must be set.' in E:\GitHub\yii\vendor\yiisoft\yii2\web\User.php:151
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\Object.php(107): yii\web\User->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(366): ReflectionClass->newInstanceArgs(Array)
+#3 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\\web\\User', Array, Array)
+#4 E:\GitHub\yii\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\User', Array, Array)
+#5 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(71): yii\di\ServiceLocator->get('user')
+#7 E:\GitHub\yii\app\controllers\SiteController.php(28): yii\di\ServiceLocator->__get('user')
+#8 [internal function]: app\controllers\SiteController->actionIndex()
+#9 E:\GitHub\yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#10 E:\GitHub\yii\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#11 E:\GitHub\yii\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#12 E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#13 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#15 {main}
+2015-09-09 13:00:28 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://b.yii:8080/index.php?r=site%2Fmain'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54205'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441774828.033
+    'REQUEST_TIME' => 1441774828
+]
+2015-09-09 13:18:15 [127.0.0.1][-][-][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Getting unknown property: yii\base\DynamicModel::email' in E:\GitHub\yii\vendor\yiisoft\yii2\base\Component.php:143
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\DynamicModel.php(86): yii\base\Component->__get('email')
+#1 E:\GitHub\yii\vendor\yiisoft\yii2\validators\Validator.php(237): yii\base\DynamicModel->__get('email')
+#2 E:\GitHub\yii\vendor\yiisoft\yii2\base\Model.php(352): yii\validators\Validator->validateAttributes(Object(yii\base\DynamicModel), Array)
+#3 E:\GitHub\yii\vendor\yiisoft\yii2\base\DynamicModel.php(190): yii\base\Model->validate()
+#4 E:\GitHub\yii\app\controllers\SiteController.php(41): yii\base\DynamicModel::validateData(Array, Array)
+#5 [internal function]: app\controllers\SiteController->actionMain()
+#6 E:\GitHub\yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 E:\GitHub\yii\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#8 E:\GitHub\yii\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('main', Array)
+#9 E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('site/main', Array)
+#10 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#12 {main}
+2015-09-09 13:18:15 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/main'
+]
+
+$_POST = [
+    '_csrf' => 'cmNnbjVaSnE3El4YTDIVKAcoKD4YYisQOyYiF0IMBUUVLzhWDTEDFw=='
+    'city' => 'sh'
+    'name' => '1'
+    'mobile' => '2323'
+]
+
+$_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://b.yii:8080/index.php?r=site%2Fmain'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '93'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54593'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site/main'
+    'REQUEST_URI' => '/index.php?r=site/main'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441775895.947
+    'REQUEST_TIME' => 1441775895
+]
+2015-09-09 13:26:52 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: site/啊啊' in E:\GitHub\yii\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('\xE5\x95\x8A\xE5\x95\x8A', Array)
+#1 E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('site/\xE5\x95\x8A\xE5\x95\x8A', Array)
+#2 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php:96
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#2 {main}
+2015-09-09 13:26:52 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/啊啊'
+]
+
+$_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54818'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/%E5%95%8A%E5%95%8A'
+    'REQUEST_URI' => '/index.php?r=site/%E5%95%8A%E5%95%8A'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441776412.458
+    'REQUEST_TIME' => 1441776412
+]
+2015-09-09 13:27:38 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'User::identityClass must be set.' in E:\GitHub\yii\vendor\yiisoft\yii2\web\User.php:151
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\Object.php(107): yii\web\User->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(366): ReflectionClass->newInstanceArgs(Array)
+#3 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\\web\\User', Array, Array)
+#4 E:\GitHub\yii\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\User', Array, Array)
+#5 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(71): yii\di\ServiceLocator->get('user')
+#7 E:\GitHub\yii\app\controllers\SiteController.php(29): yii\di\ServiceLocator->__get('user')
+#8 [internal function]: app\controllers\SiteController->actionIndex()
+#9 E:\GitHub\yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#10 E:\GitHub\yii\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#11 E:\GitHub\yii\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#12 E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('site/', Array)
+#13 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#15 {main}
+2015-09-09 13:27:38 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/'
+]
+
+$_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54826'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/'
+    'REQUEST_URI' => '/index.php?r=site/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441776458.47
+    'REQUEST_TIME' => 1441776458
+]
+2015-09-09 13:28:00 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'User::identityClass must be set.' in E:\GitHub\yii\vendor\yiisoft\yii2\web\User.php:151
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\Object.php(107): yii\web\User->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(366): ReflectionClass->newInstanceArgs(Array)
+#3 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\\web\\User', Array, Array)
+#4 E:\GitHub\yii\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\User', Array, Array)
+#5 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(71): yii\di\ServiceLocator->get('user')
+#7 E:\GitHub\yii\app\controllers\SiteController.php(29): yii\di\ServiceLocator->__get('user')
+#8 [internal function]: app\controllers\SiteController->actionIndex()
+#9 E:\GitHub\yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#10 E:\GitHub\yii\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#11 E:\GitHub\yii\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#12 E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('site/', Array)
+#13 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#15 {main}
+2015-09-09 13:28:00 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/'
+]
+
+$_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54830'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/'
+    'REQUEST_URI' => '/index.php?r=site/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441776480.934
+    'REQUEST_TIME' => 1441776480
+]
+2015-09-09 13:28:21 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'User::identityClass must be set.' in E:\GitHub\yii\vendor\yiisoft\yii2\web\User.php:151
+Stack trace:
+#0 E:\GitHub\yii\vendor\yiisoft\yii2\base\Object.php(107): yii\web\User->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(366): ReflectionClass->newInstanceArgs(Array)
+#3 E:\GitHub\yii\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\\web\\User', Array, Array)
+#4 E:\GitHub\yii\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\User', Array, Array)
+#5 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 E:\GitHub\yii\vendor\yiisoft\yii2\di\ServiceLocator.php(71): yii\di\ServiceLocator->get('user')
+#7 E:\GitHub\yii\app\controllers\SiteController.php(29): yii\di\ServiceLocator->__get('user')
+#8 [internal function]: app\controllers\SiteController->actionIndex()
+#9 E:\GitHub\yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#10 E:\GitHub\yii\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#11 E:\GitHub\yii\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#12 E:\GitHub\yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#13 E:\GitHub\yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\GitHub\yii\index.php(15): yii\base\Application->run()
+#15 {main}
+2015-09-09 13:28:21 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => 'a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'D:/XAMPP/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/XAMPP/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'b.yii:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://b.yii:8080/index.php?r=site/'
+    'HTTP_COOKIE' => '_csrf=a41ac1236dd7c35f9999bf7c592c270c0913a49778626c728a156d26e52afd23a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Eq9vyh_YuKOP-8aaIEEywVO4gL_88kIf%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Python27;F:\\program files\\skype\\Phone\\;D:\\xampp\\mysql\\bin;C:\\Users\\Administrator\\AppData\\Local\\Code\\bin;D:\\XAMPP\\php;D:\\Composer'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8 Server at b.yii Port 8080</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.12 (Win32) OpenSSL/1.0.1l PHP/5.6.8'
+    'SERVER_NAME' => 'b.yii'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8080'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/GitHub/yii'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/GitHub/yii/index.php'
+    'REMOTE_PORT' => '54863'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1441776501.197
+    'REQUEST_TIME' => 1441776501
+]
