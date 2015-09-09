@@ -26,7 +26,6 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        //Yii::$app->user;
         if (Yii::$app->request->isPost) {
             return $this->redirect(['main']);
         }

@@ -7,6 +7,10 @@ return [
     'controllerNamespace' => 'app\controllers',
     'bootstrap' => ['log'],
     'components' => [
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => FALSE,
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -24,6 +28,6 @@ return [
         ],
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'timeZone'=>'Asia/shanghai'
-    
+    'timeZone'=>'Asia/shanghai',
+    'language' => 'zh-CN'
 ];
