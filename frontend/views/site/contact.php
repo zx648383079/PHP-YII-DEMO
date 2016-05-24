@@ -9,6 +9,7 @@ use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
 $this->title = 'Contact';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -21,7 +22,7 @@ $this->title = 'Contact';
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                <?= $form->field($model, 'name') ?>
+                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'email') ?>
 

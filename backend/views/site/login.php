@@ -1,40 +1,58 @@
 <?php
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-use yii\helpers\Html;
+$this->title = '登录';
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+$fieldOptions1 = [
+    'options' => ['class' => 'form-group has-feedback'],
+    'inputTemplate' => "{input}<span class='glyphicon glyphicon-envelope form-control-feedback'></span>"
+];
+
+$fieldOptions2 = [
+    'options' => ['class' => 'form-group has-feedback'],
+    'inputTemplate' => "{input}<span class='glyphicon glyphicon-lock form-control-feedback'></span>"
+];
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <form action="?r=site/login" method="POST">
-                <input type="hidden" name="<?=Yii::$app->getRequest()->csrfParam?>" value="<?=Yii::$app->getRequest()->getCsrfToken()?>">
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Name</label>
-                    <input type="text" name="LoginForm[username]" class="form-control" id="exampleInputPassword1" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="LoginForm[password]" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                </div>
-                <div class="form-group">
-                    <label>
-                    <input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked>
-                    Remember Me
-                    </label>
-                </div>
-                <p class="text-danger"><?=$error?></p>
-                <button type="submit" class="btn btn-primary" name="login-button">Login</button> 
-            </form>
-        </div>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#">后台管理</a>
     </div>
-</div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">登录界面</p>
+
+        <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
+
+        <?= $form
+            ->field($model, 'username', $fieldOptions1)
+            ->label(false)
+            ->textInput(['placeholder' => '手机号或用户名或邮箱']) ?>
+
+        <?= $form
+            ->field($model, 'password', $fieldOptions2)
+            ->label(false)
+            ->passwordInput(['placeholder' => '密码']) ?>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+            </div>
+            <!-- /.col -->
+        </div>
+
+
+        <?php ActiveForm::end(); ?>
+
+    </div>
+    <!-- /.login-box-body -->
+</div><!-- /.login-box -->

@@ -6,25 +6,38 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use Zodream\Domain\Filter\Filters\EmailFilter;
+use Zodream\Domain\Filter\Filters\PhoneFilter;
 
 /**
  * User model
  *
+ * /**
+ * This is the model class for table "{{%user}}".
+ *
  * @property integer $id
- * @property string $username
+ * @property string $phone
  * @property string $password_hash
+ * @property string $avatar
+ * @property string $sex
+ * @property string $username
  * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
- * @property integer $status
  * @property integer $created_at
+ * @property string $created_ip
+ * @property integer $last_at
+ * @property string $last_ip
+ * @property string $updated_ip
  * @property integer $updated_at
+ * @property integer $status
  * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+
 
     /**
      * @inheritdoc
@@ -77,12 +90,50 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username)
-    {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    public static function findByUsername($username) {
+        $column = 'username';
+        if ((new PhoneFilter())->validate($username)) {
+            $column = 'phone';
+        } elseif ((new EmailFilter())->validate($username)) {
+            $column = 'email';
+        }
+        return static::findOne([$column => $username, 'status' => self::STATUS_ACTIVE]);
     }
 
+    /**
+     * Finds user by password reset token
+     *
+     * @param string $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token)
+    {
+        if (!static::isPasswordResetTokenValid($token)) {
+            return null;
+        }
 
+        return static::findOne([
+            'password_reset_token' => $token,
+            'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+    /**
+     * Finds out if password reset token is valid
+     *
+     * @param string $token password reset token
+     * @return boolean
+     */
+    public static function isPasswordResetTokenValid($token)
+    {
+        if (empty($token)) {
+            return false;
+        }
+
+        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
+        return $timestamp + $expire >= time();
+    }
 
     /**
      * @inheritdoc
@@ -98,14 +149,6 @@ class User extends ActiveRecord implements IdentityInterface
     public function getAuthKey()
     {
         return $this->auth_key;
-    }
-    
-    /**
-     * @inheritdoc
-     */
-    public function getLevel()
-    {
-        return $this->level;
     }
 
     /**
@@ -145,4 +188,19 @@ class User extends ActiveRecord implements IdentityInterface
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
+    /**
+     * Generates new password reset token
+     */
+    public function generatePasswordResetToken()
+    {
+        $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
+    }
+
+    /**
+     * Removes password reset token
+     */
+    public function removePasswordResetToken()
+    {
+        $this->password_reset_token = null;
+    }
 }
