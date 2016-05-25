@@ -59,5 +59,15 @@ return [
             ],
         ],
     ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/login',
+            'site/logout',
+            'site/error',
+            //'rbac/*'
+            // The actions listed here will be allowed to everyone including guests.
+        ],
+    ],
     'params' => $params,
 ];
