@@ -6,8 +6,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use Zodream\Domain\Filter\Filters\EmailFilter;
-use Zodream\Domain\Filter\Filters\PhoneFilter;
+use Zodream\Domain\Filter\DataFilter;
 
 /**
  * User model
@@ -92,9 +91,9 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username) {
         $column = 'username';
-        if ((new PhoneFilter())->validate($username)) {
+        if (DataFilter::validate($username, 'phone')) {
             $column = 'phone';
-        } elseif ((new EmailFilter())->validate($username)) {
+        } elseif (DataFilter::validate($username, 'email')) {
             $column = 'email';
         }
         return static::findOne([$column => $username, 'status' => self::STATUS_ACTIVE]);
