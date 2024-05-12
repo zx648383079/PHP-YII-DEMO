@@ -1,12 +1,13 @@
 <?php
+
 namespace backend\controllers;
 
+use common\models\LoginForm;
 use Yii;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use common\models\LoginForm;
-use common\models\User;
-use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * Site controller
@@ -14,110 +15,86 @@ use yii\filters\VerbFilter;
 class SiteController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['reset','index'],
-                        'allow' => true,
-                        'matchCallback' => function()
-                        {
-                            return (!Yii::$app->user->isGuest && Yii::$app->user->identity->level == 99);
-                        },             //使用方法判断
                     ],
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
                 ],
             ],
         ];
     }
-    
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function actions()
     {
         return [
             'error' => [
-                'class' => 'yii\web\ErrorAction',
+                'class' => \yii\web\ErrorAction::class,
             ],
         ];
     }
 
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
     public function actionIndex()
     {
         return $this->render('index');
     }
-    
-    public function actionReset()
-    {
-        $error = '';
-        if(!empty(Yii::$app->request->post()))
-        {
-            $oldpwd = Yii::$app->request->post('oldpwd');
-            $newpwd = Yii::$app->request->post('newpwd');
-            $confirm = Yii::$app->request->post('confirm');
-            
-            $error = 'Some error is happen!';
-            if(Yii::$app->user->identity->validatePassword($oldpwd) && $newpwd === $confirm)
-            {
-                $user = Yii::$app->user->identity;
-                $user->setPassword($newpwd);
-                $user->updated_at = time();
-                $user->save();
-                $error = 'Reset password sucesss!';
-            }
-        };
-        return $this->render('password',['error' => $error]);
-    }
 
+    /**
+     * Login action.
+     *
+     * @return string|Response
+     */
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-        
+
+        $this->layout = 'blank';
+
         $model = new LoginForm();
-        
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-        } else {
-            $error = '';
-            if(!empty($model->errors))
-            {
-                foreach ($model->errors as $value) {
-                    foreach ($value as $val) {
-                        $error .= $val;
-                    }
-                }
-            }
-            var_dump($model->errors);
-            return $this->render('login', [
-                'model' => $model,
-                'error' => $error
-            ]);
         }
+
+        $model->password = '';
+
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
+    /**
+     * Logout action.
+     *
+     * @return Response
+     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
